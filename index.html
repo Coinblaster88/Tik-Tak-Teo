@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tic-Tac-Toe Game</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <!-- Mode Selection Screen -->
+        <div id="modeSelection" class="mode-selection">
+            <h1>Tic-Tac-Toe</h1>
+            <p class="subtitle">Choose Game Mode</p>
+            <button class="mode-btn ai-btn" onclick="startGame('ai')">
+                🤖 Play vs AI
+            </button>
+            <button class="mode-btn player-btn" onclick="startGame('2player')">
+                👥 2 Player Mode
+            </button>
+        </div>
+
+        <!-- Game Board Screen -->
+        <div id="gameBoard" class="game-board hidden">
+            <!-- Control Panel -->
+            <div class="controls">
+                <div class="info-panel">
+                    <span id="modeLabel" class="mode-label">Mode: vs AI</span>
+                    <span id="statusLabel" class="status-label">Player X's Turn</span>
+                </div>
+                <div class="button-panel">
+                    <button class="control-btn reset-btn" onclick="resetGame()">🔄 Reset</button>
+                    <button class="control-btn menu-btn" onclick="backToMenu()">🏠 Main Menu</button>
+                </div>
+            </div>
+
+            <!-- Game Grid -->
+            <div class="grid">
+                <div class="cell" data-cell="0" onclick="handleCellClick(0)"></div>
+                <div class="cell" data-cell="1" onclick="handleCellClick(1)"></div>
+                <div class="cell" data-cell="2" onclick="handleCellClick(2)"></div>
+                <div class="cell" data-cell="3" onclick="handleCellClick(3)"></div>
+                <div class="cell" data-cell="4" onclick="handleCellClick(4)"></div>
+                <div class="cell" data-cell="5" onclick="handleCellClick(5)"></div>
+                <div class="cell" data-cell="6" onclick="handleCellClick(6)"></div>
+                <div class="cell" data-cell="7" onclick="handleCellClick(7)"></div>
+                <div class="cell" data-cell="8" onclick="handleCellClick(8)"></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Game Over Modal -->
+    <div id="gameOverModal" class="modal hidden">
+        <div class="modal-content">
+            <h2 id="gameOverTitle">Game Over</h2>
+            <p id="gameOverMessage"></p>
+            <div class="modal-buttons">
+                <button class="modal-btn" onclick="resetGame(); closeModal()">Play Again</button>
+                <button class="modal-btn" onclick="backToMenu(); closeModal()">Main Menu</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
